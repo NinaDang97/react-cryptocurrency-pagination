@@ -1,1 +1,1 @@
-# react-cryptocurrency
+# react-cryptocurrency-pagination
