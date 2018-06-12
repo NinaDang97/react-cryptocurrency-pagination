@@ -55,11 +55,11 @@
 #coin_container{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 #coin_container .coin{
-  flex-basis: 25%;
+  flex-basis: 23%;
   padding: 15px;
   margin: 25px 0;
   background: linear-gradient(to right, rgba(236, 231, 231, 0.651), rgba(255, 255, 255, 0.603));

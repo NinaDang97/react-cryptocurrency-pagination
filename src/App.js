@@ -102,7 +102,7 @@ class App extends Component {
   }
 
   render() {
-    const {pageObj} = this.state;
+    const {pageObj, coinList} = this.state;
     let renderCoin = this.state.coinList.slice(pageObj.startIndex, pageObj.endIndex).map((coin, i) => <Coin key={i} coin={coin} />);
     
     return (
@@ -117,11 +117,21 @@ class App extends Component {
         />
 
         <div id="container">
-          <div id="count_result">There are currently {this.state.coinList.length} type(s) of cryptocurrency</div>
-          <div id="pagination">
-            <button onClick={() => this.movePagination("previous")}>Previous</button>
-            <button onClick={() => this.movePagination("next")}>Next</button>
-          </div>
+        
+          {coinList.length > 50 
+            && <div>
+            <div id="count_result">There are currently {coinList.length} type(s) of cryptocurrency</div>
+            <div id="pagination">
+              <button onClick={() => this.movePagination("previous")}>Previous</button>
+              <button onClick={() => this.movePagination("next")}>Next</button>
+            </div></div>}
+
+            {coinList.length <= 50 && coinList.length > 0
+            &&
+            <div id="count_result">There are currently {coinList.length} type(s) of cryptocurrency</div>}
+
+            {coinList.length === 0 && <div id="count_result">Sorry! We cannot find any type of cryptocurrency you are looking for.</div>}
+
           <div id="coin_container">
             {renderCoin}
           </div>
